@@ -82,7 +82,7 @@ const Card = ({product, addtoCart = true, removeFromCart = false, quantity = fal
             <div className="card-body">
                 {getRedirect(redirect)}
                 <ImageHelper product={product}/>
-              <p className="lead my-3 bg-secondary rounded font-weight-normal text-wrap">
+              <p className="lead my-3 rounded font-weight-normal text-wrap">
                 {cardDescription}
               </p>
               <p className="btn btn-light rounded btn-sm px-4">{cardPrice} /- </p> <br />

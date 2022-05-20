@@ -44,7 +44,7 @@ const Menu = ({history}) => (
 
        {!isAuthenticated() &&             
              <Fragment>
-                 <Nav.Link style={currTab(history, "/signup")} className="nav-link" href="/signup"> SignUp</Nav.Link>
+                 <Nav.Link style={currTab(history, "/signup")} className="nav-link" href="/signup"> Signup</Nav.Link>
                 <Nav.Link style={currTab(history, "/signin")} className="nav-link" href="/signin"> Login</Nav.Link>
              </Fragment>    
        }
@@ -58,7 +58,7 @@ const Menu = ({history}) => (
                                 })
                             }}
                         > 
-                        SignOut</Nav.Link>
+                        Logout</Nav.Link>
         )}
       
       <Nav.Link style={currTab(history, "/cart")} className="nav-link" href="/cart"> Cart</Nav.Link>
