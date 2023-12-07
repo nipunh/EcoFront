@@ -54,6 +54,7 @@ export const removefromCart = (productId) => {
         })
         localStorage.setItem("cart", JSON.stringify(cart));
     }
+
     return cart;
 }
 

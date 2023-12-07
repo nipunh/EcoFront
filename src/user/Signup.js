@@ -24,9 +24,6 @@ const Signup = () => {
         setValues({...values, error: false, [name]: event.target.value})
     };
 
-
-
-    console.log(values);
     const onSubmit = event => {
         event.preventDefault();
         setValues({...values, error: false, loading:true})

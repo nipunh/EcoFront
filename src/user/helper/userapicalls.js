@@ -23,11 +23,11 @@ export const getUser = (userId, token) => {
     return fetch(`${API}/user/${userId}`, {
         method: "GET",
         headers:{
-        Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`
         }
     })
     .then(response => {
-        return response.json()
+        return response
     })
     .catch(err => console.log(err));
 }

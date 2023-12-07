@@ -3,8 +3,8 @@ import Base from '../core/Base';
 import { Redirect, Link  } from 'react-router-dom';
 import { signin, authenticate, isAuthenticated } from '../auth/helper';
 import { Form, Row, Col, Button, Spinner } from 'react-bootstrap';
-import FacebookLogin from 'react-facebook-login';
-import { GoogleLogin } from 'react-google-login'
+// import FacebookLogin from 'react-facebook-login';
+// import { GoogleLogin } from 'react-google-login'
 
 
 const Signin = () => {
@@ -53,9 +53,12 @@ const Signin = () => {
         signin({email, password})
         .then(data => {
             if(data?.error){
+                console.log("Error if :")
                 console.log(data.error);
                 setValues({...values, error : data.error, loading: false})
             }else{
+                console.log("Error else :")
+                console.log({...values});
                 authenticate(data, () => {
                     setValues({
                         ...values,
@@ -179,7 +182,7 @@ const Signin = () => {
                 </Col>
                 
             </Row>
-
+{/* 
             <Row className="my-4 ml-1 d-none d-lg-block">
                 <div className="bar bar-top"></div>
                 <span className="login-or offset-4">OR</span>
@@ -211,8 +214,8 @@ const Signin = () => {
                         // onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
                     />
-                </Col>
-            </Row>    
+                </Col> */}
+            {/* </Row>     */}
         </Form.Group>
         </Form>
         </Col>

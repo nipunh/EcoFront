@@ -18,7 +18,13 @@ const UserDashBoard = () => {
 const preload = (UserId) => {
     getUser(UserId, token).then(data=>{
         if(data?.error){
-            console.log(data.error)
+            console.log(data.error);
+            setValues({
+                userId: "",
+        name: "",
+        email: "",
+        role : ""
+            })
         }else{
             setValues(data);
         }
