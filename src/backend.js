@@ -1,2 +1,2 @@
-export const API = process.env.REACT_APP_BACKEND;
+export const API = import.meta.env.VITE_APP_BACKEND;
 export default API;
