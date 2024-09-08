@@ -3,18 +3,12 @@ import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Slider} from "@/components/ui/slider"
 import { Input } from "@/components/ui/input"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Pagination,
-  PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious, } from "@/components/ui/pagination"
-import { Link, withRouter } from 'react-router-dom'
 import { getProducts } from "./helper/coreapicalls"
-import ImageHelper from "./helper/ImageHelper"
 import ProductCard from "./ProductCard"
 
 
@@ -26,7 +20,6 @@ export default function Products() {
   });
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(false);
-
   const [loading, setloading] = useState(false);
 
 
@@ -52,7 +45,8 @@ export default function Products() {
 
   const [searchTerm, setSearchTerm] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
-  const [productsPerPage] = useState(10)
+  const [productsPerPage] = useState(10);
+
   const handleFilterChange = (type, value) => {
     if (type === "category") {
       setSelectedFilters({
@@ -73,140 +67,12 @@ export default function Products() {
       })
     }
   }
+
   const handleSearch = (e) => {
     setSearchTerm(e.target.value)
     setCurrentPage(1)
   }
-  // const products = [
-  //   {
-  //     id: 1,
-  //     name: "Wireless Headphones",
-  //     price: 79.99,
-  //     image: "/placeholder.svg",
-  //     category: "Electronics",
-  //     rating: 4.5,
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Cotton T-Shirt",
-  //     price: 24.99,
-  //     image: "/placeholder.svg",
-  //     category: "Clothing",
-  //     rating: 4.2,
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Hiking Backpack",
-  //     price: 59.99,
-  //     image: "/placeholder.svg",
-  //     category: "Outdoor",
-  //     rating: 4.7,
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Ceramic Mug",
-  //     price: 12.99,
-  //     image: "/placeholder.svg",
-  //     category: "Home",
-  //     rating: 4.1,
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Fitness Tracker",
-  //     price: 49.99,
-  //     image: "/placeholder.svg",
-  //     category: "Electronics",
-  //     rating: 4.4,
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "Denim Jeans",
-  //     price: 39.99,
-  //     image: "/placeholder.svg",
-  //     category: "Clothing",
-  //     rating: 4.6,
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "Camping Tent",
-  //     price: 89.99,
-  //     image: "/placeholder.svg",
-  //     category: "Outdoor",
-  //     rating: 4.8,
-  //   },
-  //   {
-  //     id: 8,
-  //     name: "Decorative Vase",
-  //     price: 19.99,
-  //     image: "/placeholder.svg",
-  //     category: "Home",
-  //     rating: 4.3,
-  //   },
-  //   {
-  //     id: 9,
-  //     name: "Wireless Earbuds",
-  //     price: 59.99,
-  //     image: "/placeholder.svg",
-  //     category: "Electronics",
-  //     rating: 4.6,
-  //   },
-  //   {
-  //     id: 10,
-  //     name: "Leather Jacket",
-  //     price: 99.99,
-  //     image: "/placeholder.svg",
-  //     category: "Clothing",
-  //     rating: 4.8,
-  //   },
-  //   {
-  //     id: 11,
-  //     name: "Camping Chair",
-  //     price: 39.99,
-  //     image: "/placeholder.svg",
-  //     category: "Outdoor",
-  //     rating: 4.5,
-  //   },
-  //   {
-  //     id: 12,
-  //     name: "Throw Pillow",
-  //     price: 24.99,
-  //     image: "/placeholder.svg",
-  //     category: "Home",
-  //     rating: 4.2,
-  //   },
-  //   {
-  //     id: 13,
-  //     name: "Smartwatch",
-  //     price: 99.99,
-  //     image: "/placeholder.svg",
-  //     category: "Electronics",
-  //     rating: 4.7,
-  //   },
-  //   {
-  //     id: 14,
-  //     name: "Flannel Shirt",
-  //     price: 34.99,
-  //     image: "/placeholder.svg",
-  //     category: "Clothing",
-  //     rating: 4.4,
-  //   },
-  //   {
-  //     id: 15,
-  //     name: "Hiking Boots",
-  //     price: 79.99,
-  //     image: "/placeholder.svg",
-  //     category: "Outdoor",
-  //     rating: 4.9,
-  //   },
-  //   {
-  //     id: 16,
-  //     name: "Desk Lamp",
-  //     price: 29.99,
-  //     image: "/placeholder.svg",
-  //     category: "Home",
-  //     rating: 4.3,
-  //   },
-  // ]
+
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       if (selectedFilters.category.length > 0 && !selectedFilters.category.includes(product.category)) {
@@ -224,8 +90,7 @@ export default function Products() {
       return true
     })
   }, [selectedFilters, searchTerm]);
-  
-  console.log(filteredProducts);
+
   const indexOfLastProduct = currentPage * productsPerPage
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct)
@@ -233,12 +98,6 @@ export default function Products() {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
-
-
-  console.log(currentProducts);
-
-  
-  
 
   return loading  ?( <p>Loading...</p> ):
   (
@@ -360,24 +219,5 @@ export default function Products() {
         </div>
       </div>
     </div>
-  )
-}
-
-function StarIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-    </svg>
   )
 }

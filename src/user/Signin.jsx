@@ -102,111 +102,111 @@ const Signin = () => {
     };
 
     const signInForm = () => {
-        // return(
+        return(
 
-        //     <div className="row">
-        //         <div className="col-md-6 offset-sm-3 text-left">
-        //         <form >
-        //             <div className="form-group ">
-        //                  <label  className="form-group">Email</label>
-        //                  <input 
-        //                  type="email" 
-        //                  className="form-control "  
-        //                  placeholder=" Enter Your Email Address" 
-        //                  onChange = {handleChange("email")}
-        //                  value = {email}
-        //                  />
-        //             </div>
+            <div className="row">
+                <div className="col-md-6 offset-sm-3 text-left">
+                <form >
+                    <div className="form-group ">
+                         <label  className="form-group">Email</label>
+                         <input 
+                         type="email" 
+                         className="form-control "  
+                         placeholder=" Enter Your Email Address" 
+                         onChange = {handleChange("email")}
+                         value = {email}
+                         />
+                    </div>
 
-        //             <div className="form-group ">
-        //                 <label className="form-group">Password</label>
-        //                 <input 
-        //                 type="password" 
-        //                 className="form-control" 
-        //                 name="" 
-        //                 id="" 
-        //                 placeholder=""
-        //                 onChange = {handleChange("password")}
-        //                 value = {password}
-        //                 />
-        //             </div>
+                    <div className="form-group ">
+                        <label className="form-group">Password</label>
+                        <input 
+                        type="password" 
+                        className="form-control" 
+                        name="" 
+                        id="" 
+                        placeholder=""
+                        onChange = {handleChange("password")}
+                        value = {password}
+                        />
+                    </div>
 
-        //             <div className="form-group form-center ">
-        //                 <button 
-        //                 type="button" 
-        //                 className="btn btn-success btn-block"
-        //                 onClick = {onSubmit}
+                    <div className="form-group form-center ">
+                        <button 
+                        type="button" 
+                        className="btn btn-success btn-block"
+                        onClick = {onSubmit}
 
-        //                 >Submit</button>
-        //             </div>
+                        >Submit</button>
+                    </div>
 
 
-        //         </form>
-        //         </div>               
-        //     </div>
+                </form>
+                </div>               
+            </div>
 
-        // )
+        )
 
         //Bootstrap UI
-        return(
+  //       return(
             
-    <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
-    <div className="flex items-center justify-center py-12">
-      <div className="mx-auto grid w-[350px] gap-6">
-        <div className="grid gap-2 text-center">
-          <h1 className="text-3xl font-bold">Login</h1>
-          <p className="text-balance text-muted-foreground">
-            Enter your email below to login to your account
-          </p>
-        </div>
-        <div className="grid gap-4">
-          <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="m@example.com"
-              required
-            />
-          </div>
-          <div className="grid gap-2">
-            <div className="flex items-center">
-              <Label htmlFor="password">Password</Label>
-              {/* <Link
-                href="/forgot-password"
-                className="ml-auto inline-block text-sm underline"
-              >
-                Forgot your password?
-              </Link> */}
-            </div>
-            <Input id="password" type="password" required />
-          </div>
-          <Button type="submit" className="w-full">
-            Login
-          </Button>
-          <Button variant="outline" className="w-full">
-            Login with Google
-          </Button>
-        </div>
-        <div className="mt-4 text-center text-sm">
-          Don&apos;t have an account?{" "}
-          <Link href="#" className="underline">
-            Sign up
-          </Link>
-        </div>
-      </div>
-    </div>
-    <div className="hidden bg-muted lg:block">
-      <img
-        src="/placeholder.svg"
-        alt="Image"
-        width="1920"
-        height="1080"
-        className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-      />
-    </div>
-  </div>
-        )
+  //   <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
+  //   <div className="flex items-center justify-center py-12">
+  //     <div className="mx-auto grid w-[350px] gap-6">
+  //       <div className="grid gap-2 text-center">
+  //         <h1 className="text-3xl font-bold">Login</h1>
+  //         <p className="text-balance text-muted-foreground">
+  //           Enter your email below to login to your account
+  //         </p>
+  //       </div>
+  //       <div className="grid gap-4">
+  //         <div className="grid gap-2">
+  //           <Label htmlFor="email">Email</Label>
+  //           <Input
+  //             id="email"
+  //             type="email"
+  //             placeholder="m@example.com"
+  //             required
+  //           />
+  //         </div>
+  //         <div className="grid gap-2">
+  //           <div className="flex items-center">
+  //             <Label htmlFor="password">Password</Label>
+  //             {/* <Link
+  //               href="/forgot-password"
+  //               className="ml-auto inline-block text-sm underline"
+  //             >
+  //               Forgot your password?
+  //             </Link> */}
+  //           </div>
+  //           <Input id="password" type="password" required />
+  //         </div>
+  //         <Button type="submit" className="w-full">
+  //           Login
+  //         </Button>
+  //         <Button variant="outline" className="w-full">
+  //           Login with Google
+  //         </Button>
+  //       </div>
+  //       <div className="mt-4 text-center text-sm">
+  //         Don&apos;t have an account?{" "}
+  //         <Link href="#" className="underline">
+  //           Sign up
+  //         </Link>
+  //       </div>
+  //     </div>
+  //   </div>
+  //   <div className="hidden bg-muted lg:block">
+  //     <img
+  //       src="/placeholder.svg"
+  //       alt="Image"
+  //       width="1920"
+  //       height="1080"
+  //       className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+  //     />
+  //   </div>
+  // </div>
+  //       )
         
         // (
             // <Card className="">
