@@ -116,7 +116,7 @@ export function Base({ title, description, children }) {
                     </Link>
 
                     {/* User Routes */}
-                    {isAuthenticated() && isAuthenticated().user.role === 1 &&
+                    {isAuthenticated() && isAuthenticated().user.role === 0 &&
                         <TooltipProvider>
                             {/* Products */}
                             <Tooltip>
@@ -159,6 +159,25 @@ export function Base({ title, description, children }) {
                                 <TooltipContent side="right">Orders</TooltipContent>
                             </Tooltip>
                             {/* Product Page */}
+                            {/* <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <Link
+                                        to="/product/:productId"
+                                        className={clsx(
+                                            'flex h-9 w-9 items-center justify-center rounded-lg transition-colors',
+                                            {
+                                                'text-foreground': activeLink === '/product/:productId',
+                                                'text-accent-foreground hover:text-foreground': activeLink !== '/cart',
+                                            }
+                                        )}
+                                        onClick={() => setActiveLink('/product/:productId')}
+                                    >
+                                        <ShoppingCart className="h-5 w-5" />
+                                        <span className="sr-only">Product Details</span>
+                                    </Link>
+                                </TooltipTrigger>
+                                <TooltipContent side="right">Orders</TooltipContent>
+                            </Tooltip> */}
                             {/* Checkout */}
                         </TooltipProvider>
 

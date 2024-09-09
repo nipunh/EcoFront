@@ -19,6 +19,7 @@ import ViewOrders from './user/viewOrders';
 import ManageOrders from './admin/ManageOrders';
 import { Base } from './core/Base';
 import Products from './core/Products';
+import ProductDetailPage from './user/ProductDetailPage';
 // import { ThemeProvider } from  './components/ui/themeProvider'
 
 const Routes = () => {
@@ -30,6 +31,7 @@ const Routes = () => {
             <Route path="/signup" exact component={Signup} />
             <Route path="/signin" exact component={Signin} />
             <Route path="/cart" exact component={Cart} />
+            <Route path="/product/:productId" exact component={ProductDetailPage} />
             <PrivateRoute path="/user/dashboard" exact component={UserDashBoard} /> 
             <PrivateRoute path="/user/updateProfile" exact component={updateProfile} /> 
             <PrivateRoute path="/user/ViewOrders" exact component={ViewOrders} /> 

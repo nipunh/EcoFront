@@ -21,7 +21,6 @@ const ProductCard = ({product, addtoCart = true, removeFromCart = false, quantit
     const cardPrice = product ? product.price : "Unavailable"
   
   
-
     const addToCart = () => {
         addItemToCart(product, ()=> setRedirect(true) )
     }
@@ -76,9 +75,6 @@ const ProductCard = ({product, addtoCart = true, removeFromCart = false, quantit
     )
     );
   }
-
-  
-    
     // return (
     //       <div className="card text-white bg-dark border border-dark shadow">
     //         <div className="card-header lead">{cardTitle}</div>
@@ -105,9 +101,9 @@ const ProductCard = ({product, addtoCart = true, removeFromCart = false, quantit
     return (
       <Card key={product._id} className="relative group">
       {getRedirect(redirect)}
-      {/* <Link to="/" className="absolute inset-0 z-10" prefetch="false"> */}
-        <span className="sr-only">View {product.name}</span>
-      {/* </Link> */}
+      <Link to={`/product/${product._id}`} className="absolute inset-0 z-10" prefetch="false">
+        <span className="sr-only">{product.name}</span>
+      </Link>
       <ImageHelper product={product}/>
       <CardContent className="py-4">
         <h3 className="font-semibold text-lg">{product.name}</h3>
