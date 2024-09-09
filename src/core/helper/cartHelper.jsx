@@ -1,5 +1,5 @@
 
-export const addItemToCart = (item, next) => {
+export const addItemToCart = (item, next, quantity) => {
     let cart = []
     let flag =0;
     if(typeof window !== undefined){
@@ -10,7 +10,7 @@ export const addItemToCart = (item, next) => {
             
             if(product._id === item._id)
             {
-                product.count += 1;
+                product.count += quantity;
                 flag =1;
             }
                     
@@ -22,7 +22,7 @@ export const addItemToCart = (item, next) => {
         else{
         cart.push({
             ...item,
-            count : 1
+            count : quantity
         })
             localStorage.setItem("cart", JSON.stringify(cart))
         }

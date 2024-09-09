@@ -8,12 +8,20 @@ import { useEffect, useState } from "react"
 import { getProductById } from "../core/helper/coreapicalls"
 import { useParams } from "react-router-dom"
 import ImageHelper from "../core/helper/ImageHelper"
+import { addItemToCart } from "../core/helper/cartHelper"
+
 
 export default function ProductDetailPage() {
     const { productId } = useParams(); // Use useParams to get the route parameters
     const [product, setProduct] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [quantity, setQuantity] = useState("1");
+
+    // Function to handle value changes
+    const handleValueChange = (value) => {
+        setQuantity(value);
+    };
 
     useEffect(() => {
         const loadProduct = async () => {
@@ -37,6 +45,10 @@ export default function ProductDetailPage() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
 
+    const addToCart = () => {
+        addItemToCart(product, () => setRedirect(true), parseInt(quantity));
+        setQuantity(1);
+    }
     return (
         <Base>
             <div className="grid md:grid-cols-2 items-start max-w-3xl px-4 mx-auto py-6 gap-6 md:gap-12">
@@ -136,7 +148,7 @@ export default function ProductDetailPage() {
                             <Label htmlFor="quantity" className="text-base">
                                 Quantity
                             </Label>
-                            <Select defaultValue="1">
+                            <Select defaultValue="1" onValueChange={handleValueChange}>
                                 <SelectTrigger className="w-24">
                                     <SelectValue placeholder="Select" />
                                 </SelectTrigger>
@@ -149,7 +161,7 @@ export default function ProductDetailPage() {
                                 </SelectContent>
                             </Select>
                         </div>
-                        <Button size="lg">Add to cart</Button>
+                        <Button onClick={() => addToCart(product)} size="lg">Add to cart</Button>
                     </form>
                     <Separator className="border-gray-200 dark:border-gray-800" />
                     <div className="grid gap-4 text-sm leading-loose">
@@ -215,7 +227,7 @@ export default function ProductDetailPage() {
                         </button>
                     </div>
                     <div className="grid gap-4 md:gap-10">
-                    <ImageHelper product={product}/>
+                        <ImageHelper product={product} />
                         <div className="flex md:hidden items-start">
                             <button className="border hover:border-gray-900 rounded-lg overflow-hidden transition-colors dark:hover:border-gray-50">
                                 <img
