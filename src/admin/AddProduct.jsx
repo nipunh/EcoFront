@@ -166,7 +166,7 @@ const AddProduct = () => {
                 <div className="col-md-8 offset-md-2">
                  
                     {createProductForm()}
-                     {successMessage()}
+                    {successMessage()}
 
                 </div>
 

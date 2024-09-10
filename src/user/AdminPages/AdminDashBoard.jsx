@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react'
-import { Base } from '../core/Base';
-import { isAuthenticated } from '../auth/helper';
+import { Base } from '../../core/Base';
+import { isAuthenticated } from '../../auth/helper';
 import { Link } from 'react-router-dom';
-import { getAllOrders } from '../admin/helper/adminapicall';
+import { getAllOrders } from '../../admin/helper/adminapicall';
 import "zingchart/es6";
 import ZingChart from "zingchart-react";
+import { AdminAnalytics } from './AdminAnalytics';
 
 
 
@@ -33,8 +34,6 @@ const AdminDashBoard = () => {
     function preventDefault(event) {
         event.preventDefault();
       }
-
-
 
     const [graphData, setGraphData] = useState( {
         type: "pie3d",
@@ -181,7 +180,7 @@ const AdminDashBoard = () => {
 
     return (
         <Base title="Welcome Admin" description="Manage all products here" className="p-4">
-            <h1>Dashboard</h1>
+            {/* <h1>Dashboard</h1>
             <div className="row">
                 <div className="col-lg-3 col-md-3 sm-12 my-2">
                     {adminLeft()}
@@ -193,8 +192,8 @@ const AdminDashBoard = () => {
                 <div className="col-lg-6 col-md-6 sm-12 my-2">
                     {adminGraphs()}
                 </div>
-            </div>
-                   
+            </div> */}
+                   <AdminAnalytics />
         </Base>
     )
 }

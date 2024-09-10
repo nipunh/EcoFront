@@ -6,7 +6,7 @@ import Signin from './user/Signin';
 import AdminRoute from './auth/helper/AdminRoutes';
 import PrivateRoute from './auth/helper/PrivateRoutes';
 import UserDashBoard from './user/UserDashBoard';
-import AdminDashBoard from './user/AdminDashBoard';
+import AdminDashBoard from './user/AdminPages/AdminDashBoard';
 import AddCategory from './admin/AddCategory';
 import ManageCategories from './admin/ManageCategories';
 import AddProduct from './admin/AddProduct';
@@ -20,6 +20,7 @@ import ManageOrders from './admin/ManageOrders';
 import { Base } from './core/Base';
 import Products from './core/Products';
 import ProductDetailPage from './user/ProductDetailPage';
+import { ManageInventory } from './user/AdminPages/ManageInventory';
 // import { ThemeProvider } from  './components/ui/themeProvider'
 
 const Routes = () => {
@@ -40,7 +41,7 @@ const Routes = () => {
             <AdminRoute path="/admin/categories" exact component={ManageCategories} />
             <AdminRoute path="/admin/category/update/:categoryId" exact component={UpdateCategory} />
             <AdminRoute path="/admin/create/product" exact component={AddProduct} />
-            <AdminRoute path="/admin/products" exact component={ManageProducts} />
+            <AdminRoute path="/admin/products" exact component={ManageInventory} />
             <AdminRoute path="/admin/product/update/:productId" exact component={UpdateProduct} />
             <AdminRoute path="/admin/orders" exact component={ManageOrders} />
 

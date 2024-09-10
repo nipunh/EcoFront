@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import Base from '../core/PrevBase';
+import Base from '../core/Base';
 import { Link} from 'react-router-dom';
 import { isAuthenticated } from '../auth/helper';
 import { getCategory, updateCategory } from './helper/adminapicall';
